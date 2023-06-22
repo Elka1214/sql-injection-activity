@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form action="/login" method="post">
+      <div class="container">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+
+    <script>
+      var form = document.querySelector("form");
+      form.addEventListener("submit", function (event) {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        if (username === "" || password === "") {
+          alert("Invalid login. Please enter both username and password.");
+          event.preventDefault();
+        }
+      });
+    </script>
+  </body>
+</html>
+
+<script>
+  if (document.location.hash === "#unauthorized") {
+    document.write(
+      '<div class="unauthorized">Invalid Username or Password</div>'
+    );
+  } else if (document.location.hash === "#error") {
+    document.write('<div class="error">An error has occurred</div>');
+  }
+</script>
